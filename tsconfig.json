@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "strictNullChecks": true,
+        "module": "commonjs",
+        "target": "ES2017",
+        "sourceMap": true,
+        "outDir": "dist",
+        "noImplicitAny": true,
+        "lib": [
+            "es2017",
+            "es2016",
+            "dom"
+        ],
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "src/types/*"
+            ]
+        }
+    },
+    "include": [
+        "App/**/*"
+    ]
+}
