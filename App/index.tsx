@@ -5,5 +5,5 @@ import { Post } from "./components/Post";
 
 ReactDOM.render(
     <Post />,
-    document.getElementById("example")
+    document.getElementById("react-app")
 );

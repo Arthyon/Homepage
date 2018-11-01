@@ -3,7 +3,8 @@ import BlockContent from "@sanity/block-content-to-react";
 const sanityClient = require('@sanity/client');
 const client = sanityClient({
     projectId: "dgj4r2lw",
-    dataset: "production"
+    dataset: "production",
+    useCdn: true
 });
 
 export interface PostState { post: any | null };
