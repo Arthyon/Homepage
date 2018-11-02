@@ -31,6 +31,7 @@ export class Post extends React.Component<{}, PostState> {
         return <div>
             <h1>{post.title}</h1>
             <BlockContent blocks={post.body} />
+            <div><i>Site is running version: {process.env.VERSION}</i></div>
         </div>
     }
 

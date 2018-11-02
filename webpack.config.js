@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
     entry: "./App/index.tsx",
     output: {
@@ -24,7 +26,16 @@ module.exports = {
 
     devServer: {
         contentBase: __dirname + "/dist",
-    }
+    },
+
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                VERSION: JSON.stringify(require("./package.json").version)
+            }
+        })
+    ]
+
 
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
