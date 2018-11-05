@@ -1,7 +1,7 @@
 {
   "name": "homepage",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "package.json",
   "author": "Christian Hochlin <christian.hochlin@gmail.com>",
@@ -10,7 +10,7 @@
     "start-sanity": "sanity start",
     "test-sanity": "sanity check",
     "typescript": "cross-env tsc -p .",
-    "start:dev": "cp App/index.html dist && webpack-dev-server --mode development",
+    "watch": "cp App/index.html dist && webpack-dev-server --mode development",
     "build": "webpack --mode production && cp App/index.html dist"
   },
   "keywords": [

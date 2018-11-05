@@ -6,6 +6,10 @@
         "module": "ESNext",
         "moduleResolution": "node",
         "target": "es5",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
         "strictNullChecks": true,
         "alwaysStrict": true,
         "noUnusedLocals": true,
