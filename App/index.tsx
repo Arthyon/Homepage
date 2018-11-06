@@ -1,16 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import { ReleaseNote } from "./components/ReleaseNote";
+import { App } from "./App";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    renderSite(),
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
     document.getElementById("react-app")
 );
-
-function renderSite() {
-    return <div>
-        <ReleaseNote />
-        <div><i>Site is running version: {process.env.VERSION}</i></div>
-    </div>
-}

@@ -1,36 +1,31 @@
 import React from "react";
 import BlockContent from "@sanity/block-content-to-react";
-const sanityClient = require('@sanity/client');
-const client = sanityClient({
-    projectId: "dgj4r2lw",
-    dataset: "production",
-    useCdn: true
-});
+import { client } from "../modules/CmsClient";
+import { RouteComponentProps } from 'react-router-dom';
 
-export interface ReleaseNoteState { notes: Array<any> };
+export interface ReleaseNoteState { notes: any };
 
-export class ReleaseNote extends React.Component<{}, ReleaseNoteState> {
+export class ReleaseNote extends React.Component<RouteComponentProps<{ slug }>, ReleaseNoteState> {
     constructor(props) {
         super(props);
         this.state = { notes: [] };
     }
     async componentDidMount() {
-        const notes = await client.fetch("*[_type == $type]{'mainImage': mainImage.asset->url, ...}[0...2]",
-            { type: "releaseNote" })
+        const slug = this.props.match.params.slug;
+        const notes = await client.fetch("*[_type == $type && slug.current == $slug]{'mainImage': mainImage.asset->url, ...}[0]",
+            { type: "releaseNote", slug: slug })
         this.setState({ notes: notes });
     }
     render() {
-        return this.state.notes.map(n => this.renderPost(n));
-    }
-
-    private renderPost(notes) {
-        return <div key={notes._id}>
-            <h1>Version {notes.version}</h1>
-            {notes.mainImage &&
-                <img src={notes.mainImage + "?h=200"} />
+        return <div key={this.state.notes._id}>
+            <h1>Version {this.state.notes.version}</h1>
+            <p>{this.state.notes.releaseDate}</p>
+            {this.state.notes.mainImage &&
+                <img src={this.state.notes.mainImage + "?h=200"} />
             }
-            <BlockContent blocks={notes.body} />
+            <BlockContent blocks={this.state.notes.body} />
         </div>
     }
+
 
 }
