@@ -1,10 +1,12 @@
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = {
-    entry: "./App/index.tsx",
+module.exports = [{
+    name: "Client App",
+    entry: "./App/client.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/www/scripts"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -45,4 +47,46 @@ module.exports = {
     //     "react": "React",
     //     "react-dom": "ReactDOM"
     // }
-};
+},
+{
+    name: "Server",
+    entry: "./App/server.tsx",
+    output: {
+        filename: "server.js",
+        publicPath: "/",
+        path: __dirname + "/www"
+    },
+    target: "node",
+    node: {
+        __dirname: false,
+        __filename: false
+
+    },
+    externals: [nodeExternals()],
+
+    // Enable sourcemaps for debugging webpack's output.
+    devtool: "source-map",
+
+    resolve: {
+        // Add '.ts' and '.tsx' as resolvable extensions.
+        extensions: [".ts", ".tsx", ".js", ".json"]
+    },
+
+    module: {
+        rules: [
+            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+            { test: /\.(ts|tsx)?$/, loader: "awesome-typescript-loader" },
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+        ]
+    },
+
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                VERSION: JSON.stringify(require("./package.json").version)
+            }
+        })
+    ]
+
+}];

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import { Main } from "./Main";
 import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <BrowserRouter>
-        <App />
+        <Main />
     </BrowserRouter>,
     document.getElementById("react-app")
 );
