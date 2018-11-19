@@ -6,6 +6,6 @@ module.exports = {
   testMatch: ["**/tests/**/*.ts?(x)", "**/tests/**/*.js"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
   collectCoverage: true,
-  collectCoverageFrom: ["App/**/*.ts", "App/**/*.tsx"],
+  collectCoverageFrom: ["src/**/*.ts", "src/**/*.tsx"],
   coverageReporters: ["lcov"]
 };
