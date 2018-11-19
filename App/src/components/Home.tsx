@@ -9,7 +9,7 @@ export class Home extends React.Component<{}, HomeState> {
         this.state = { notes: [] };
     }
     async componentDidMount() {
-        const notes = await client.fetch("*[_type == $type][0...5]",
+        const notes = await client.fetch("*[_type == $type] | order(releaseDate desc) [0...5]",
             { type: "releaseNote" })
         this.setState({ notes: notes });
     }

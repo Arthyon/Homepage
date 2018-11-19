@@ -21,7 +21,7 @@ export class ReleaseNote extends React.Component<RouteComponentProps<{ slug }>, 
             <h1>Version {this.state.notes.version}</h1>
             <p>{this.state.notes.releaseDate}</p>
             {this.state.notes.mainImage &&
-                <img src={this.state.notes.mainImage + "?h=200"} />
+                <a href={this.state.notes.mainImage}><img src={this.state.notes.mainImage + "?h=200"} /></a>
             }
             <BlockContent blocks={this.state.notes.body} />
         </div>
