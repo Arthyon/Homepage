@@ -7,27 +7,15 @@
   "author": "Christian Hochlin <christian.hochlin@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start-sanity": "sanity start",
-    "test-sanity": "sanity check",
     "typescript": "cross-env tsc -p .",
-    "watch": "cp App/index.html dist && webpack-dev-server --mode development",
     "build:dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "yarn build:dev && yarn dev",
-    "dev": "node ./www/server.js"
+    "start": "yarn build:dev && node ./www/server.js"
   },
-  "keywords": [
-    "sanity"
-  ],
+  "keywords": [],
   "dependencies": {
-    "@sanity/base": "^0.135.4",
     "@sanity/block-content-to-react": "^2.0.5",
     "@sanity/client": "^0.135.3",
-    "@sanity/components": "^0.135.4",
-    "@sanity/core": "^0.135.3",
-    "@sanity/default-layout": "^0.135.4",
-    "@sanity/default-login": "^0.135.0",
-    "@sanity/desk-tool": "^0.135.4",
     "express": "^4.15.4",
     "prop-types": "^15.6",
     "react": "^16.2",

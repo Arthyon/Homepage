@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = [{
     name: "Client App",
-    entry: "./App/client.tsx",
+    entry: "./src/client.tsx",
     output: {
         filename: "bundle.js",
         path: __dirname + "/www/scripts"
@@ -50,7 +50,7 @@ module.exports = [{
 },
 {
     name: "Server",
-    entry: "./App/server.tsx",
+    entry: "./src/server.tsx",
     output: {
         filename: "server.js",
         publicPath: "/",

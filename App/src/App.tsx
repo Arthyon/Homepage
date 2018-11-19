@@ -17,7 +17,7 @@ export class App extends React.Component<AppProps, {}> {
                 <body>
                     <div id="react-app" dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
 
-                    <script src="scripts/bundle.js"></script>
+                    <script src="/scripts/bundle.js"></script>
                 </body>
 
             </html>
