@@ -28,7 +28,10 @@ export default {
     {
       name: 'releaseDate',
       title: 'Release date',
-      type: 'datetime'
+      type: 'date',
+      options: {
+        dateFormat: 'D MMM YYYY',
+      }
     },
     {
       name: 'body',

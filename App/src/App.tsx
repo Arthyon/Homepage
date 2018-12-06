@@ -12,6 +12,10 @@ export class App extends React.Component<AppProps, {}> {
                 <head>
                     <meta charSet="utf-8" />
                     <title>Hello!</title>
+                    <link
+                        rel="stylesheet"
+                        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css"
+                    />
                 </head>
 
                 <body>
