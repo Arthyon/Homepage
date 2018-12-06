@@ -2,3 +2,4 @@ www/**/*
 dist/**/*
 coverage/**/*
 token.json
+deploy.sh
